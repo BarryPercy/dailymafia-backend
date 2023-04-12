@@ -1,0 +1,11 @@
+{
+  "name": "dailymafia-backend",
+  "version": "1.0.0",
+  "description": "backend for the dailymafia website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barry Percy",
+  "license": "ISC"
+}
