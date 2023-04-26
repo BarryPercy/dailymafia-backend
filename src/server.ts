@@ -13,7 +13,7 @@ const port = process.env.PORT
 server.use(Express.json())
 server.use(cookieParser());
 server.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://dailymafia.org',
     credentials: true
     }
 ))
