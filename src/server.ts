@@ -4,7 +4,6 @@ import cors from 'cors'
 import usersRouter from "./api/users/index";
 import mongoose from "mongoose"
 import { genericErrorHandler, badRequestHandler, unauthorizedHandler, notFoundHandler } from "./errorsHandlers"
-import 'dotenv/config';
 import { verifyAccessToken } from "./lib/auth/tools";
 import discordRouter from "./api/users/discord";
 import cookieParser from "cookie-parser"
