@@ -25,7 +25,6 @@ discordRouter.get("/callback", async (req,res,next)=>{
         createHttpError(404, `Query code not found!`)
       )
     }
-    console.log("req.query",req.query)
     const {code} = req.query
     const params = new URLSearchParams({
       client_id: process.env.DISCORD_CLIENT_ID,
@@ -40,13 +39,15 @@ discordRouter.get("/callback", async (req,res,next)=>{
     }
     console.log("code, Params and headers", code, params, headers)
     const response = await axios.post('https://discord.com/api/oauth2/token',params,{headers})
+    console.log("HERE!",response.status)
     const userResponse = await axios.get('https://discord.com/api/users/@me',{
       headers:{
         Authorization:`Bearer ${response.data.access_token}`,
       }      
     })
+    console.log(response.status)
     const {id, username, avatar} = userResponse.data;
-    let user = await UsersModel.findOne({ id });
+    let user = await UsersModel.findOne({ discordId:id });
     if(user){
       await UsersModel.findOneAndUpdate({discordId:id},{userName:username, avatar:avatar})
     }else{
