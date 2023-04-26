@@ -12,13 +12,13 @@ export const createAccessToken = (payload: TokenPayload): Promise<string> =>
     jwt.sign(
       payload,
       process.env.JWT_SECRET!,
-      { expiresIn: "1 week" },
+      { expiresIn: "7d" },
       (err, token) => {
         if (err) reject(err);
         else resolve(token as string);
       }
     )
-  ); // Input: payload, Output: Promise which resolves into the token
+  );
 
 export const verifyAccessToken = (token: string): Promise<TokenPayload> =>
   new Promise((resolve, reject) =>

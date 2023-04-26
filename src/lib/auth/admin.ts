@@ -7,3 +7,11 @@ export const adminOnlyMiddleware = (req, res, next) => {
     next(createHttpError(403, "Admins only endpoint!"))
   }
 }
+
+export const superAdminOnlyMiddleware = (req, res, next) => {
+  if (req.user.role === "SuperAdmin") {
+    next()
+  } else {
+    next(createHttpError(403, "Admins only endpoint!"))
+  }
+}
