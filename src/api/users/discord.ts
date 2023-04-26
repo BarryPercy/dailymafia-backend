@@ -11,7 +11,7 @@ const discordRouter = Express.Router()
   
 discordRouter.get("/login", async (req, res, next) => {
   try{
-    const url='https://discord.com/api/oauth2/authorize?client_id=1100363577648484373&redirect_uri=http%3A%2F%2Fapi.dailymafia.org%2Fauth%2Fdiscord%2Fcallback&response_type=code&scope=identify%20guilds%20gdm.join'
+    const url='https://discord.com/api/oauth2/authorize?client_id=1100363577648484373&redirect_uri=https%3A%2F%2Fapi.dailymafia.org%2Fauth%2Fdiscord%2Fcallback&response_type=code&scope=identify%20guilds%20gdm.join'
     res.redirect(url)
   }catch(error){
     next(error)
